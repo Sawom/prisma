@@ -26,8 +26,8 @@ const main = async () => {
     },
     select: {
       title: true,
-      // content: true,
-      // authorName: true
+      content: true,
+      authorName: true
     },
   });
 
