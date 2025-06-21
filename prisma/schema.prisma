@@ -1,3 +1,4 @@
+// mainly ekhane database er kon table e ki ki field thakbe seta bole dicchi
 generator client {
   provider = "prisma-client-js"
 }
@@ -27,8 +28,8 @@ model User {
   email    String
   role     UserRole @default(user)
   age      Int      @default(0)
-  post     Post[]
-  profile  Profile?
+  post     Post[] // one to many relation
+  profile  Profile? // one to one relation
 
   @@map("users")
 }
