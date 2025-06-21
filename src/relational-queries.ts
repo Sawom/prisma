@@ -3,15 +3,26 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const relationalQueries = async () => {
-  // fluent api: 1ta table er oprdepend kore onno table er info dekhano
+  // fluent api
   const result = await prisma.user
     .findUnique({
       where: {
-        id: 3,
+        id: 1,
       },
-    }).profile();
+    })
+    .profile();
 
-    console.log(result);
+  // relational fillters
+  const publishedPostUsers = await prisma.user.findMany({
+    include: {
+      post: {
+        where: {
+          published: true,
+        },
+      },
+    },
+  });
+  console.dir(publishedPostUsers, { depth: Infinity });
 };
 
 relationalQueries();
