@@ -17,7 +17,7 @@ const interactiveTransaction = async () => {
     // query 3
     const updateUser = await transactionClient.user.update({
       where: {
-        id: 80,
+        id: 17,
       },
       data: {
         age: 45,
